@@ -2,6 +2,9 @@ from pyspark.sql.types import StructType, StructField, StringType, DecimalType, 
 from pyspark.sql.functions import create_map, lit
 import sys
 
+
+
+
 pipeline_id = sys.argv[1]
 run_id = sys.argv[2]
 task_id = sys.argv[3]

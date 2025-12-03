@@ -21,7 +21,7 @@ targets:
     mode: development
     default: true
     workspace:
-      host: your-workspace-url # replace with your Workspace URL
+      host: https://adb-8771633106850407.7.azuredatabricks.net/
 
   test:
     mode: production
@@ -33,15 +33,13 @@ targets:
     presets:
       name_prefix: '[testing] '
     workspace:
-      host: your-workspace-url # replace with your Workspace URL
+      host: https://adb-8771633106850407.7.azuredatabricks.net/
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - service_principal_name: your-service-principal-name # update with your service principal name
-        level: CAN_MANAGE
-    run_as:
-      service_principal_name: your-service-principal-name # update with your service principal name
+     - user_name: greg.coopman@sqlcoop.com
+       level: CAN_MANAGE
 
-  prod:
+  production:
     mode: production
     variables:
       catalog:
@@ -49,10 +47,12 @@ targets:
       dev_flag:
         default: false
     workspace:
-      host: your-workspace-url # replace with your Workspace URL
+      host: https://adb-8771633106850407.7.azuredatabricks.net/
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
+    presets:
+      name_prefix: '[prod] '
+
     permissions:
-      - service_principal_name: your-service-principal-name # update with your service principal name
-        level: CAN_MANAGE
-    run_as:
-      service_principal_name: your-service-principal-name # update with your service principal name
+     - user_name: greg.coopman@sqlcoop.com
+       level: CAN_MANAGE
+
